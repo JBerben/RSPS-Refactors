@@ -1,4 +1,4 @@
-	public void updatePlayerPositions(int packetSize, JByteBuffer byteBuffer) {
+public void updatePlayerPositions(int packetSize, JByteBuffer byteBuffer) {
 		while (byteBuffer.bitPosition + 10 < packetSize * 8) {
 			int indice = byteBuffer.getBits(11);
 			if (indice == 2047)
@@ -21,7 +21,8 @@
 			int yChange = byteBuffer.getBits(5);
 			if (yChange > 15)
 				yChange -= 32;
-			player.setPosition(((Actor) Game.localPlayer).pathX[0] + xChange, ((Actor) Game.localPlayer).pathY[0] + yChange, runFlag == 1);
+			player.setPosition(((Actor) Game.localPlayer).pathX[0] + xChange,
+					((Actor) Game.localPlayer).pathY[0] + yChange, runFlag == 1);
 		}
 		return;
 	}
